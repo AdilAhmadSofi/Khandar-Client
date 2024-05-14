@@ -1,0 +1,114 @@
+
+<div class="row">
+    <div class="col-10 offset-2">
+      <!-- <nav class="ms-5 mt-5" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" (click)="previous()">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" (click)="first()">1</a></li>
+          <li class="page-item"><a class="page-link" (click)="second()">2</a></li>
+          <li class="page-item"><a class="page-link" (click)="third()">3</a></li>
+          <li class="page-item">
+            <a class="page-link" (click)="next()">Next</a>
+          </li>
+        </ul>
+  public string? nameTerm { get; set; } = string.Empty;
+
+  public Religion Religion { get; set; } = Religion.MuslimSunni;
+
+  public MaritalStatus MaritalStatus { get; set; } = MaritalStatus.UnMarried;
+
+  public WorkingSector WorkingSector { get; set; } = WorkingSector.Bussiness;
+
+      </nav> -->
+  
+
+      <div>
+        <input placeholder="Search By Name" type="text" class="form-control" name="" #nameTerm (change)="searchByName(nameTerm.value)" id="">
+       
+      </div>
+    </div>
+  
+    <div
+      class="row my-5 justify-content-center"
+      *ngFor="let seeker of partnerSeekerResponses"
+    >
+      <div class="card">
+        <div class="infos">
+          <div class="image">
+            <img
+              src="{{
+                seeker.filePath == null
+                  ? '/assets/Images/logo.jpeg'
+                  : imageBaseUrl + seeker.filePath
+              }}"
+              alt=""
+              class="img-fluid"
+            />
+          </div>
+          <div class="info">
+            <div>
+              <p class="name">
+                {{ seeker.name }}
+              </p>
+              <p class="function">
+                {{ seeker.occupation }}
+              </p>
+              <p class="function">
+                <strong>{{ seeker.city }}</strong>
+              </p>
+            </div>
+            <div class="stats">
+              <p class="flex flex-col">
+                Gender
+                <span class="state-value">
+                  {{ seeker.gender | gender }}
+                </span>
+              </p>
+              <p class="flex">
+                Age
+                <span class="state-value">
+                  {{ seeker.age }}
+                </span>
+              </p>
+              <p class="flex">
+                Caste
+                <span class="state-value">
+                  {{ seeker.caste }}
+                </span>
+              </p>
+              <p class="flex">
+                Working Sector
+                <span class="state-value">
+                  {{ seeker.workingSector |workingSector }}
+                </span>
+              </p>
+            </div>
+            <div class="stats">
+              <p class="flex flex-col">
+                Religion
+                <span class="state-value">
+                  {{ seeker.religion | religion }}
+                </span>
+              </p>
+              <p class="flex">
+                Maritial Status
+                <span class="state-value">
+                  {{ seeker.maritalStatus | maritalStatus }}
+                </span>
+              </p>
+              <p class="flex">
+                Mother Tongue
+                <span class="state-value">
+                  {{ seeker.nativeLanguage | nativelanguage }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  

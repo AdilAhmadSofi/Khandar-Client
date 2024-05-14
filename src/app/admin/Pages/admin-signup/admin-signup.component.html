@@ -1,0 +1,105 @@
+<div class="container d-flex justify-content-center mt-5">
+    <div class="row content">
+      <div class="col-md-5  mb-3">
+        <img src="/assets/Images/signup.jpg" class="img-fluid">
+      </div>
+      <div class="col-md-7">
+        <h3 class="signin-text mb-5">Create Account</h3>
+
+        <form class="form-group" #signupForm="ngForm">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="name">Name</label>
+              <input 
+              type="text"
+              class="form-control mb-3"
+              id="name"
+              placeholder="eg:rizwan"
+              name="name"
+              [(ngModel)]="newUser.name"
+              required
+              #name="ngModel"
+              [class.is-invalid]="name.touched&&name.invalid"
+              />
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+            <label for="gender">Gender</label>
+            <select 
+            type=""
+            class="form-control mb-3"
+            name="gender"
+            [(ngModel)]="newUser.gender"
+            required
+            #gender="ngModel"
+            [class.is-invalid]="gender.touched&&gender.invalid"
+          >
+                <option [ngValue]="1">Male</option>
+                <option [ngValue]="2">Female</option>
+            </select>
+          </div>
+        </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"> 
+              <div class="form-group">
+              <label for="contactNo">Contact Number</label>
+              <input
+              type="tel"
+              class="form-control  mb-3"
+              id="contactNo"
+              name="contactNo"
+              [(ngModel)]="newUser.contactNo"
+              required
+              #contactNo="ngModel"
+              [class.is-invalid]="contactNo.touched&&contactNo.invalid"
+            />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select 
+                class="form-control mb-3"
+                name="userRole"
+                [(ngModel)]="newUser.userRole"
+                required
+                #userRole="ngModel"
+                [class.is-invalid]="userRole.touched && userRole.invalid"
+              >
+                    <option [ngValue]="3">Member</option>
+                    <option [ngValue]="2">PartnerSeeker</option>
+                    <option [ngValue]="1">Admin</option>
+                </select>
+              </div>
+        </div>
+          </div>
+         
+          
+          <div class="row">
+            <div class="col-12">  <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                type="email"
+                class="form-control  mb-3"
+                id="email"
+                placeholder="example@abc.com"
+                name="email"
+                [(ngModel)]="newUser.email"
+                required
+                #email="ngModel"
+                [class.is-invalid]="email.touched&&email.invalid"
+              />
+              </div>
+            </div>
+           
+          </div>
+          <button class="btn btn-class mt-4  " [disabled]="signupForm.invalid" (click)="createUser()"  >Create Account  
+            <div class="col-4">
+            </div> </button>
+            <app-loader [showloader]="showLoader"></app-loader>
+
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,139 @@
+<nav class="navbar">
+    <ul>
+      <li><a routerLink="dashboard" style="cursor: pointer; color: white; font-size: 20px;">Dashboard</a></li>
+    </ul>
+  </nav>
+  <div class=" p-5 mb-5 mt-5">
+     
+      <section>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Donation Appeals</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalAppeals}}</strong>
+                </h5>
+                <a routerLink="/admin/donation-appeals" class="mt-4 " >Appeals</a>
+  
+              </div>
+            </div>
+            <!-- Card -->
+          </div>
+  
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Pending Appeals</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalPendingAppeals}}</strong>
+                  
+                </h5>
+                <a routerLink="/admin/donation-appeals" class="mt-4 p-2">Appeals</a>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Approved Appeals</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalApprovedAppeals}}</strong>
+                  
+                </h5>
+                <a routerLink="/admin/donation-appeals" class="mt-4 p-2">Appeals</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Completed Appeals</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalCompletedAppeals}}</strong>
+                  
+                </h5>
+                <a routerLink="/admin/donation-appeals" class="mt-4 p-2">Appeals</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Teams</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalTeams}}</strong>
+                  
+                </h5>
+                <a routerLink="/admin/team" class="mt-4 p-2">Teams</a>
+              </div>
+            </div>
+          </div>
+  
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Member</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalMembers}}</strong>
+                  
+                </h5>
+                <a routerLink="/admin/allMembers" class="mt-4 p-2">Members</a>
+              </div>
+            </div>
+          </div>
+       
+  
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total PartnerSeeker</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalPartnerseekers}}</strong>                  
+                </h5>
+                <a routerLink="/admin/seekers" class="mt-4 p-2">PartnerSeekers</a>
+  
+  
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card dash-card" >
+              <div class="card-body">
+                <p class="text-uppercase small mb-2">
+                  <strong>Total Amount</strong>
+                </p>
+                <h5 class="mb-0">
+                  <strong>{{totalTransactionAmount}}</strong>                  
+                </h5>
+                <a routerLink="/admin/all-transactions" class="mt-4 p-2">Donations</a>
+  
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      

@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="col-12 mt-3">
+    <h1 class="text-center alert alert-info mb-2">Donation Appeals</h1>
+    <select name="" id="" class="form-control" #appealStatus (change)="getAppealsByStatus($event)">
+      <option value="-1" >Select</option>
+      <option value="0" >All</option>
+      <option value="1">Pending</option>
+      <option value="2">Processing</option>
+      <option value="3">Approved</option>
+      <option value="4">Rejected</option>
+      <option value="5">Cancelled</option>
+      <option value="7">Completed</option>
+    </select>   
+  </div>
+    <div class="col-12">
+        <table class="table table-hover mt-5"> 
+            <thead>
+                <tr>
+                  <th>
+                    Case No.
+               </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Contact Number
+                    </th>
+                    <th>
+                         Status
+                    </th>
+                    <th>
+                        Amount
+                    </th>
+                   
+                    <th>
+                        Appeal Date
+                    </th>
+
+                    <th>
+                    Status
+                    </th>
+                    <th>
+                      File
+                    </th>
+                    <th>
+                        Team
+                    </th>
+                    <th>
+                       Action
+                     </th>
+                     <th>
+                       
+                     </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appeal of appeals">
+                  <td>{{appeal.caseNo}}</td>
+                    <td>
+                        <a routerLink="/member/user-details/{{appeal.beneficiaryId}}"
+                       >{{appeal.name}}</a>
+                    </td>
+                    <td>{{appeal.contactNo}}</td>
+                    <td>{{appeal.gender | gender}}</td>
+                    <td>{{appeal.amount}}</td>
+                    <td>{{appeal.appealDate|date}}</td>
+                    <td>{{appeal.donationAppealStatus | donationAppealStatus}}</td>
+                    <td>
+                        <i *ngIf="appeal.isVideo; else elseBlock">
+                            <a href="{{baseUrl+appeal.filePath}}" target = "_blank">View</a>
+
+                    </i>
+                    <ng-template #elseBlock>
+                        <a href="{{baseUrl+appeal.filePath}}" target = "_blank">Download</a>
+                    </ng-template>
+                </td>
+                <td >
+                    <span *ngIf="appeal.teamName == '';else elseTeam">Team Not Assigned</span>
+                    <ng-template #elseTeam>
+                      <b>  {{appeal.teamName}} | {{appeal.location}}</b>
+                    </ng-template>   
+                </td>
+                    <td>
+                        <button class="btn btn-outline-info" routerLink="/member/appeal-verification/{{appeal.teamAssignmentId}}/{{role}}">Verification</button>
+                    </td>
+                    <td>
+                       
+                    
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div
+  class="modal fade"
+  id="beneficiaryModal"
+  tabindex="-1"
+  aria-labelledby="beneficiaryModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="beneficiaryModal">
+          Beneficiary Details
+        </h1>
+      </div>
+      <div class="modal-body">
+        <h5>Name :- {{ beneficiary.name }}</h5>
+        <h5>Fullname :- {{ beneficiary.gender }}</h5>
+        <h5>Email :- {{ beneficiary.email }}</h5>
+        <h5>Gender :- {{ beneficiary.gender}}</h5>
+        <h5>Contact :- {{ beneficiary.contactNo}}</h5>
+        <h5>Username :- {{ beneficiary.username}}</h5>
+        <h5>Status :- {{ beneficiary.caste}}</h5>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

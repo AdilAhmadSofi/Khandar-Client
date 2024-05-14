@@ -1,0 +1,83 @@
+<div class="container">
+
+    <div class="row mt-5">
+    <h1 class=" alert alert-secondary mx-2">{{teamMembers[0].teamName}} | {{teamMembers[0].location}}</h1>
+      <div class="col-5 card ms-3 content mb-4 me-4" *ngFor="let teamMember of teamMembers">
+        <div class="card-body">
+          <div class="row ">
+            <div class="row mb-3">
+              <div class="col-3 offset-9">
+                <a class="btn btn-outline-info" routerLink="/admin/my-transactions/{{teamMember.memberId}}">Donations</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="row mt-2 mb-5  d-flex justify-content-center">
+              <img src="{{teamMember.filePath == '' ?'/assets/Images/logo.jpeg' :baseUrl+teamMember.filePath}}"
+                alt="" class="rounded-circle img-fluid" style="width: 150px;" />
+              </div>
+              <div class="row">
+              
+                <div class="col-12">
+                
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <p class="mb-0">Name</p>
+                    </div>
+                    <div class="col-sm-5">
+                      <p class="text-muted mb-0">{{teamMember.name}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Gender</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class="mb-0">{{teamMember.gender | gender}}</p>
+                  </div>
+                  
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Contact No</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class=" mb-0">{{teamMember.contactNo}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Email</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class=" mb-0">{{teamMember.email}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Member Involvement</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class="mb-0">{{teamMember.memberInvolvement | memberInvolvement}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row mb-3">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Role</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class=" mb-0">{{teamMember.memberType | memberType}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

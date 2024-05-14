@@ -1,0 +1,59 @@
+<div class="container">
+
+    <div class="row mt-5">
+      <div class="row mb-3">
+        <div class="col-3 offset-8 d-flex justify-content-end">
+          <button class="btn btn-outline-info" routerLink="/admin/team/add">Add teams</button>
+
+        </div>
+      </div>
+
+      <div class="col-5 me-4 mt-4 card ms-3 content mb-4" *ngFor="let team of teams">
+        <div class="card-body">
+          <div class="row">
+
+            <div class="row my-5">
+              <div class="col-7 offset-5 d-flex justify-content-end">
+                <button class="btn btn-outline-info me-3" routerLink="/admin/team-member/{{team.id}}">Members</button>
+                <button  class="btn btn-outline-primary" routerLink="/admin/team-member/add/{{team.id}}">Add Members</button>
+              </div>
+            </div>
+       
+            
+            <div class="col-12">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{team.name}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Location</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{team.location}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-5">
+                <div class="col-sm-3">
+                  <p class="mb-0">Description</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{team.description}}</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+ 
+        </div>
+      </div>
+    </div>
+    </div>  
+

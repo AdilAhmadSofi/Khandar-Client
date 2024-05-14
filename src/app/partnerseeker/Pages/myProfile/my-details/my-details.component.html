@@ -1,0 +1,353 @@
+
+
+    <div class="container">
+      
+      <div class="row mb-5 mt-3">
+        <div class="col-lg-4">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img src="{{imageBaseUrl+partnerSeekerResponse.filePath}}" alt="avatar"
+
+                class="rounded-circle img-fluid" style="width: 150px;">
+              <h5 class="my-3">{{localObj?.name}}</h5>
+              <p class="text-muted mb-1">{{partnerSeekerResponse.occupation}}</p>
+              <p class="text-muted mb-4"></p>
+              <div class="d-flex justify-content-evenly mb-2 ">
+                <button type="button " class="btn btn-outline-primary" routerLink="/partnerseeker/editprofile/">Edit Profile</button>
+                <div class="dropdown">
+                  <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More Details
+                  </button>
+                  <ul class="dropdown-menu " aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item"  routerLink="/partnerseeker/qualifications">Qualification</a></li>
+                    <li><a class="dropdown-item"  routerLink="/partnerseeker/hobbies" >Hobbies</a></li>
+                    <li><a class="dropdown-item"  routerLink="/partnerseeker/addresses">Address</a></li>
+                    <li>
+          <a class="dropdown-item" routerLinkActive="active" routerLink="/partnerseeker/addAddress">Add Address </a>
+
+                    </li>
+                    <li><a class="dropdown-item" routerLink="/partnerseeker/socialMedias">Social Media</a></li>
+                    <li><a class="dropdown-item" routerLink="/partnerseeker/jobHistories">Job Histories</a></li>
+                    <li><a class="dropdown-item" routerLink="/partnerseeker/my-transactions">My Donations </a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card mb-4 mb-3">
+            <div class="card-body p-0">
+              <ul class="list-group list-group-flush rounded-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fas fa-globe fa-lg text-warning"></i>
+                  <p class="mb-0">https://Khandar.com</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                  <p class="mb-0">rizwandar33</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                  <p class="mb-0">@rizwandar33</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                  <p class="mb-0">rizwandar33</p>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                  <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                  <p class="mb-0">rizwandar33</p>
+                </li>
+              </ul>
+            </div>
+          </div> -->
+          <div class="card mb-4 mb-md-0">
+            <div class="card-body">
+              <p class="mb-4"> Family Information
+              </p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Family Status</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.familyStatus | familyStatus}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Father Status</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.fatherStatus | parentStatus}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Mother Status</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.motherStatus | parentStatus}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Total Brothers</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.brothers}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Brothers Married </p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.brothersMarried}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Total Sisters </p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.sisters}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Sisters Married </p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.sistersMarried}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <div class="col-lg-8">
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{localObj?.name}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Parentage</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.parentage}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Email</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.email}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Phone</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.contactNo}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Gender</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.gender  | gender}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Date of Birth</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.dob | date}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Caste</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.caste}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Native Language</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.nativeLanguage | nativelanguage}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Marital Status</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{partnerSeekerResponse.maritalStatus | maritalStatus}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+               <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4"> Professional Information
+                  </p>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Occupation</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.occupation}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Working Sector</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.workingSector | workingSector}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Annual Income</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.annualIncome | annualIncome}}</p>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4">Religious Information
+                  </p>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Religion</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.religion | religion}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Religious</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.religious | religious}}</p>
+                    </div>
+                  </div>
+                 
+                 
+                 <!-- <div *ngIf="partnerSeekerResponse.gender == 1">
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Has Beard</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.hasBeard}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="partnerSeekerResponse.gender == 2">
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Does Hijab</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.doesHijab}}</p>
+                    </div>
+                  </div>
+                </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+           
+            <div class="col-md-12 mb-5">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                  <p class="mb-4">Appearance Information
+                  </p>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Height </p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.height | height}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Body Type </p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.bodyType | bodyType}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Complexion </p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.complexion | complexion}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p class="mb-0">Disability</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{partnerSeekerResponse.disability | disability}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

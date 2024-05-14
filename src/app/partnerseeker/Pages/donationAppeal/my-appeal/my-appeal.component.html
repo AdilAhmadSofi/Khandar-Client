@@ -1,0 +1,160 @@
+
+<div class="row" *ngFor="let appeal of appeals">
+  <div class="row mt-3  " style="height: 60px;">
+      <div class="col-10 d-flex justify-content-end align-items-center">
+        
+        <button class="btn btn-outline-primary ms-5 me-4"
+      (click)="cancelAppeal(appeal.appealId)" >Cancel Appeal</button>
+    </div>
+    </div>
+  <div class="row mb-5 ms-5 mt-5 d-flex justify-content-center">
+    <div class="col-lg-8">
+            <div class="card content mb-4"  >
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-6">
+                         
+                    <p *ngIf="appeal.isVideo; else elseBlock"  >
+                      <video src="{{baseUrl+appeal.filePath}}" loop controls class="img-fluid" ></video>
+                  </p>
+                  <ng-template #elseBlock>
+                      <a href="{{baseUrl+appeal.filePath}}" class="img-fluid" target = "_blank">Download</a>
+                  </ng-template>
+
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-2">Amount</p>
+                       <!-- <p *ngIf="appeal.donationAppealStatus.toString() == 'Pending' "> 
+                        <button class="btn btn-outline-primary" (click)="showEditForm(appeal.appealId, appeal.amount, appeal.description)">Edit Appeal</button>
+                       </p> -->
+                      </div>
+                      <div class="col-sm-4">
+                        <p class="text-muted mb-0">{{appeal.amount}}</p>
+                      </div>
+                      <div class="col-sm-4 d-flex justify-content-end">
+                      <!-- <a (click)="deleteQualification(qualification.id)"><i class="fa fa-trash text-danger"></i></a> -->
+                      </div>
+                      
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-2">Appeal Date</p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{appeal.appealDate | date}}</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-2">Case No.</p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{appeal.caseNo}}</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-2">Public</p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{appeal.isPublic}}</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-2">Description</p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{appeal.description}}</p>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <p class="mb-3">Status</p>
+                      </div>
+                      <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{appeal.donationAppealStatus}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+    
+
+                 
+                  </div>
+
+          </div>
+  </div>
+  </div>
+</div>
+
+ <div class="row" *ngIf="showUpdateForm" >
+      
+    <div class="col-md-8 offset-2 py-2 content">
+        
+        <h2 class="d-flex justify-content-center my-3">Appeal </h2>
+        <form action="" #donationAppealForm="ngForm" (ngSubmit)="submitAppeal($event)">
+            
+            <div class="form-floating my-4 mx-4">
+                <input type="hidden" name="appealId"   [(ngModel)]="model.appealId">
+                <input type="number" 
+                 placeholder="Enter Amount" 
+                 id="amount" 
+                 class="form-control"
+                 name="amount"
+                [(ngModel)]="model.amount"
+                required
+                #amount="ngModel"
+                [class.is-invalid]="amount.touched && amount.invalid">
+
+                <label for="amount">Amount</label>
+              </div>
+
+              <div class="form-floating my-4 mx-4">
+
+                <input type="text" 
+                name="description" 
+                placeholder="description"
+                 id="description" 
+                 class="form-control"
+                [(ngModel)]="model.description"
+                #description="ngModel"
+                [class.is-invalid]="description.touched && description.invalid"
+                >
+                  <label for="description">description</label>
+              </div>
+
+              <div class="form-floating my-4 mx-4">
+
+                <input type="file"
+                 name="file"
+                  placeholder="file" 
+                  id="file"
+                   class="form-control"
+                [(ngModel)]="model.file"
+                #file="ngModel"
+              >
+                <label for="file">Upload File</label>
+            </div>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-outline-success btn-w me-4 mb-3" [disabled]="donationAppealForm.invalid">Update</button>
+                    <button type="button" (click)="hideForm()" class="btn btn-outline-success btn-w me-4 mb-3" >Cancel</button>
+                    <!-- <app-loader [showloader]="showLoader"></app-loader> -->
+             
+                </div>
+     </form>
+    </div>
+    </div>
+

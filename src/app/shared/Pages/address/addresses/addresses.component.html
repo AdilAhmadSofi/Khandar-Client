@@ -1,0 +1,63 @@
+
+<div class="row mt-3 ms-5 " style="height: 60px;">
+  <div class="col-12 d-flex justify-content-end align-items-center">
+    
+</div>
+</div>
+<div class="row mb-5 ms-5 mt-3 d-flex justify-content-center"  *ngFor="let address of addresses">
+   <div class="col-lg-8">
+          <div class="card mb-4 bg-light" style="box-shadow: 2px 2px 3px #888888;" >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-1">State</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{address.state}}</p>
+                </div>
+                <div class="col-sm-4 d-flex justify-content-end">
+                <a (click)="deleteAddress(address.id)"><i class="fa fa-trash text-danger"></i></a>
+                </div>
+                
+              </div>
+            <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-1">City</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{address.city}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-1">Address</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{address.addressLine}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-1">Land Mark</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{address.landmark}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-1">Pincode</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{address.pinCode }}</p>
+                </div>
+              </div>
+          </div>
+
+        </div>
+</div>
+</div>

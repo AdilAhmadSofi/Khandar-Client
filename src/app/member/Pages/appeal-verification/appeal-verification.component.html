@@ -1,0 +1,129 @@
+<div class="container ">
+
+  <div class="row">
+
+    <div class="col-md-8 offset-2 py-2 content">
+
+      <h2 class="d-flex justify-content-center my-3">Verification</h2>
+      <form action="" #verificationForm="ngForm" (ngSubmit)="submitVerification()">
+
+        <div class="form-floating my-4 mx-4">
+          <select name="remarks" placeholder="remarks" id="remarks" class="form-control" [(ngModel)]="model.remarks"
+            #remarks="ngModel" [class.is-invalid]="remarks.touched && remarks.invalid">
+            <option disabled selected >Choose option</option>            
+            <ng-container *ngIf="role == 'Leader'; else elseBlock ">
+              <option [ngValue]="4">Accepted</option>
+              <option [ngValue]="5">Rejected</option>
+            </ng-container>
+            <ng-template #elseBlock>
+              <option [ngValue]="1">Genuine</option>
+              <option [ngValue]="2">Moderate</option>
+              <option [ngValue]="3">Fraud</option>
+            </ng-template>
+          </select>
+          <label for="name">Remarks</label>
+
+        </div>
+
+        <div class="form-floating my-4 mx-4">
+          <input type="text" placeholder="feedback" id="feedback" class="form-control" name="feedback"
+            [(ngModel)]="model.feedback" required #feedback="ngModel"
+            [class.is-invalid]="feedback.touched && feedback.invalid">
+
+          <label for="name">Feedback</label>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-outline-success btn-w me-4 mb-3"
+            [disabled]="verificationForm.invalid">Submit</button>
+          <!-- <app-loader [showloader]="showLoader"></app-loader> -->
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mb-5 ms-5 mt-5 d-flex justify-content-center">
+    <div class="col-lg-8" *ngFor="let appealVerificationResponse of appealVerificationResponses">
+
+      <div class="card mb-4" style="box-shadow: 2px 2px 3px #888888;">
+
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-2">Name</p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-muted mb-0">{{appealVerificationResponse.memberName}}</p>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-end">
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-2">Contact No.</p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-muted mb-0">{{appealVerificationResponse.memberContactNo}}</p>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-end">
+            </div>
+
+          </div>
+          <hr>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-2">Remarks</p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-muted mb-0">{{appealVerificationResponse.remarks}}</p>
+            </div>
+            <div class="col-sm-4 d-flex justify-content-end">
+            </div>
+
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-2">FeedBack</p>
+            </div>
+            <div class="col-sm-8">
+              <p class="text-muted mb-0">{{appealVerificationResponse.feedback}}</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-2">verificationDate</p>
+            </div>
+            <div class="col-sm-8">
+              <p class="text-muted mb-0">{{appealVerificationResponse.verificationDate | date}}</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-3">appealDate</p>
+            </div>
+            <div class="col-sm-8">
+              <p class="text-muted mb-0">{{appealVerificationResponse.appealDate | date}}</p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <p class="mb-3">Status</p>
+            </div>
+            <div class="col-sm-8">
+              <p class="text-muted mb-0">{{appealVerificationResponse.donationAppealStatus}}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

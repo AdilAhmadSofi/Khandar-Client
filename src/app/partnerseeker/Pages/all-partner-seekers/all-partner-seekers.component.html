@@ -1,0 +1,121 @@
+
+<div class="row mt-5">
+  <div class="col-10 offset-2">
+    <!-- <nav class="ms-5 mt-5" aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" (click)="previous()">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" (click)="first()">1</a></li>
+        <li class="page-item"><a class="page-link" (click)="second()">2</a></li>
+        <li class="page-item"><a class="page-link" (click)="third()">3</a></li>
+        <li class="page-item">
+          <a class="page-link" (click)="next()">Next</a>
+        </li>
+      </ul>
+    </nav> -->
+    <div>
+      <input placeholder="Search By Name" type="text" class="form-control" name="" #nameTerm (change)="searchByName(nameTerm.value)" id="">
+    </div>
+  </div>
+
+  <div
+    class="row my-5 justify-content-center"
+    *ngFor="let seeker of partnerSeekerResponses"
+  >
+    <div class="card">
+      <div class="infos">
+        <div class="image">
+          <img
+            src="{{
+              seeker.filePath == null
+                ? '/assets/Images/logo.jpeg'
+                : imageBaseUrl + seeker.filePath
+            }}"
+            alt=""
+            class="img-fluid"
+          />
+        </div>
+        <div class="info">
+          <div>
+            <p class="name">
+              {{ seeker.name }}
+            </p>
+            <p class="function">
+              {{ seeker.occupation }}
+            </p>
+            <p class="function">
+              <strong>{{ seeker.city }}</strong>
+            </p>
+          </div>
+          <div class="stats">
+            <p class="flex flex-col">
+              Gender
+              <span class="state-value">
+                {{ seeker.gender | gender }}
+              </span>
+            </p>
+            <p class="flex">
+              Age
+              <span class="state-value">
+                {{ seeker.age }}
+              </span>
+            </p>
+            <p class="flex">
+              Caste
+              <span class="state-value">
+                {{ seeker.caste }}
+              </span>
+            </p>
+            <p class="flex">
+              Working Sector
+              <span class="state-value">
+                {{ seeker.workingSector |workingSector }}
+              </span>
+            </p>
+          </div>
+          <div class="stats">
+            <p class="flex flex-col">
+              Religion
+              <span class="state-value">
+                {{ seeker.religion | religion }}
+              </span>
+            </p>
+            <p class="flex">
+              Maritial Status
+              <span class="state-value">
+                {{ seeker.maritalStatus | maritalStatus }}
+              </span>
+            </p>
+            <p class="flex">
+              Mother Tongue
+              <span class="state-value">
+                {{ seeker.nativeLanguage | nativelanguage }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <button class="button mt-2" [disabled]="flag" (click)="sendProposal(seeker.id)">
+        <div class="svg-wrapper-1">
+          <div class="svg-wrapper">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+            >
+              <path fill="none" d="M0 0h24v24H0z"></path>
+              <path
+                fill="currentColor"
+                d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <span>Send Request</span>
+      </button>
+    </div>
+  </div>
+</div>

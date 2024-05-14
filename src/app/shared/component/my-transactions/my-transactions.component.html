@@ -1,0 +1,31 @@
+<div class="row mt-2 mx-3">
+   
+    <div class="col-12 mt-3">
+        <h1 class="alert alert-success text-center">Transactions</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Paid Amount</td>
+                <td>Case No</td>
+                <td>Receipt</td>
+                <td>transactionDate</td>
+                <td>transaction Id</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactionResponse">
+                <td>{{transaction.paidAmount}}</td>
+                <td>
+                    <!-- <a routerLink="user-details/{{transaction.beneficiaryId}}"> -->
+                        {{transaction.caseNo}}
+                    <!-- </a> -->
+                    </td>
+                <td>{{transaction.receipt}}</td>
+                <td>{{transaction.transactionDate | date }}</td>
+                <td>{{transaction.transactionId}}</td>
+               
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

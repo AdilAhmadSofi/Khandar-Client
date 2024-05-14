@@ -1,0 +1,102 @@
+<h1 class="alert alert-danger" *ngIf="isEmpty">No Requests</h1>
+<div
+class="row my-5 justify-content-center"
+*ngFor="let proposes of proposalInfoResponses"
+>
+<div class="card">
+  <div class="infos">
+    <div class="image">
+      <img
+        src="{{
+          proposes.filePath == null
+            ? '/assets/Images/logo.jpeg'
+            : imageBaseUrl + proposes.filePath
+        }}"
+        alt=""
+        class="img-fluid"
+      />
+    </div>
+    <div class="info">
+      <div>
+        <p class="name">
+          {{ proposes.name }}
+        </p>
+        <p class="function">
+          {{ proposes.occupation }}
+        </p>
+        <p class="function">
+          <strong>{{ proposes.city }}</strong>
+        </p>
+      </div>
+      <div class="stats">
+        <p class="flex flex-col">
+          Gender
+          <span class="state-value">
+            {{ proposes.gender | gender }}
+          </span>
+        </p>
+        <p class="flex">
+          Age
+          <span class="state-value">
+            {{ proposes.age }}
+          </span>
+        </p>
+        <p class="flex">
+          Caste
+          <span class="state-value">
+            {{ proposes.caste }}
+          </span>
+        </p>
+        <p class="flex">
+          Working Sector
+          <span class="state-value">
+            {{ proposes.workingSector }}
+          </span>
+        </p>
+      </div>
+      <div class="stats">
+        <p class="flex flex-col">
+          Religion
+          <span class="state-value">
+            {{ proposes.religion }}
+          </span>
+        </p>
+        <p class="flex">
+          Maritial Status
+          <span class="state-value">
+            {{ proposes.maritalStatus  }}
+          </span>
+        </p>
+        <p class="flex">
+          Mother Tongue
+          <span class="state-value">
+            {{ proposes.nativeLanguage }}
+          </span>
+        </p>
+
+        <p class="flex">
+          Status
+          <span class="state-value">
+            {{ proposes.proposalStatus  }}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+
+  </div>
+  <div class="row" style="margin-top: 75px;">
+    <div class="col-4 offset-8 d-flex  justify-content-end ">
+      <button class="btn btn-success px-3  me-3"  (click)="updateProposalStatus(proposes.proposalId, true)">Accept</button>
+   
+      <button class="btn btn-danger px-3  me-4"  (click)="updateProposalStatus(proposes.proposalId, false)">
+        Reject
+      </button>
+    </div>  
+  </div>
+  
+
+  
+</div>
+</div>

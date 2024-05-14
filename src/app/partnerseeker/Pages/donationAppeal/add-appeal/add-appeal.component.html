@@ -1,0 +1,76 @@
+<div class="container ">
+
+    <div class="row" >
+
+        <div class="col-md-8 offset-2 py-2 content">
+
+            <h2 class="d-flex justify-content-center my-3">Appeal </h2>
+            <form action="" #donationAppealForm="ngForm" (ngSubmit)="submitAppeal($event)">
+
+                <div class="form-floating my-4 mx-4">
+
+                    <input type="number"
+                     placeholder="Enter Amount"
+                     id="amount"
+                     class="form-control"
+                     name="amount"
+                    [(ngModel)]="modal.amount"
+                    required
+                    #amount="ngModel"
+                    [class.is-invalid]="amount.touched && amount.invalid">
+
+                    <label for="amount">Amount</label>
+                  </div>
+
+                  <div class="form-floating my-4 mx-4">
+
+                    <input type="text"
+                    name="description"
+                    placeholder="description"
+                     id="description"
+                     class="form-control"
+                    [(ngModel)]="modal.description"
+                    #description="ngModel"
+                    [class.is-invalid]="description.touched && description.invalid"
+                    >
+                      <label for="description">description</label>
+                  </div>
+
+
+                  <div class="form-check form-switch m-4">
+                 
+                    <input class="form-check-input"  name="isPublic" (click)="checkIsPublic()" [value]="isChecked"  [(ngModel)]="modal.isPublic" type="checkbox"  id="isPublic" [checked]="isChecked">
+                    <label class="form-check-label" for="isPublic">Public | Private</label>
+                  </div>
+                  <!-- <div class="form-group form-check mx-4">
+                    <input
+                      type="checkbox"
+                      name="isPublic"
+                      class="form-check-input"
+                      id="checkbox"
+                      [(ngModel)]="modal.isPublic"
+                    />
+                    <label class="form-check-label" for="checkbox">Public/Private</label>
+                  </div> -->
+                  <div class="form-floating my-4 mx-4">
+
+                    <input type="file"
+                     name="file"
+                      placeholder="file"
+                      id="file"
+                       class="form-control"
+                    [(ngModel)]="modal.file"
+                    #file="ngModel"
+                  >
+                    <label for="file">Upload File</label>
+                </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-success btn-w me-4 mb-3" [disabled]="donationAppealForm.invalid">Save</button>
+                        <!-- <app-loader [showloader]="showLoader"></app-loader> -->
+
+                    </div>
+         </form>
+        </div>
+        </div>
+    </div>
+

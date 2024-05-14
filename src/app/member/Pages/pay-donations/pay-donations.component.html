@@ -1,0 +1,46 @@
+
+ <div class="row mt-5">
+    <div class="col-6 offset-3">
+      <div class="card mb-5" style=" border: 1; box-shadow: 5px 5px 3px grey;"
+        *ngFor="let appeal of appeals">
+        <div class="card-body">
+          <h5 class="card-title text-center">Donations</h5>
+          <div class="row justify-content-end">
+            <div class="col-4">
+              <button class="btn btn-info" routerLink="/user-details/{{appeal.beneficiaryId}}"
+                *ngIf="appeal.isPublic">View Details</button>
+            </div>
+          </div>
+          <p class="card-text">
+            Case Number : {{appeal.caseNo}}
+          </p>
+          <p class="card-text">
+            Gender : {{appeal.gender}}
+          </p>
+          <p class="card-text">
+            Amount : {{appeal.amount}}
+          </p>
+          <p class="card-text">
+            Description : {{appeal.description}}
+          </p>
+          <div class="row my-3 d-flex justify-content-center">
+           
+            <div class="col-6">
+                    <input type="number"   class="form-control" #txtAmount name="" id="">
+            </div>
+<div class="col-6">
+
+  <button  class="btn btn-outline-info"  
+  (click)="donateNow(appeal.appealId,txtAmount.value)" >Donate</button>
+</div>
+  
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+
+  

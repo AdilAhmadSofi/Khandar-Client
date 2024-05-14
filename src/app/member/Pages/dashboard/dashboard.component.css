@@ -1,0 +1,11 @@
+.navbar{
+    height: 3rem;
+    background: rgb(10 27 37);
+    /* rgb(76, 114, 131); */
+    width: 100%;
+    margin-right: 200px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    list-style: none;
+}

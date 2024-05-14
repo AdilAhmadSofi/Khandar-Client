@@ -1,0 +1,573 @@
+<ul class="nav nav-tabs bg-light rounded-3 mt-2 me-1 ms-5" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Personal Info</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" (click)="getPartnerFamily()" aria-selected="false">Family </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" (click)="getPartnerQualification()" aria-selected="false" >Educational</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane"(click)="getPartnerAddresses()" aria-selected="false" >Address</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-4">
+            <div class="card mb-4">
+              <div class="card-body text-center">
+                <img src="{{personalInfoResponse.filePath == ''?'/assets/Images/logo.jpeg': imageBaseUrl+personalInfoResponse.filePath}}" alt="avatar"
+    
+                  class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3">{{personalInfoResponse.name}}</h5>
+                <p class="text-muted mb-1">{{personalInfoResponse.occupation}}</p>
+                <p class="text-muted mb-4"></p>
+                <div class="d-flex justify-content-center mb-2">
+                  {{professionalInfoResponse.occupation}}
+                </div>
+              </div>
+              </div>
+
+              <!-- <div class="card mb-4 mb-3">
+                <div class="card-body p-0">
+                  <ul class="list-group list-group-flush rounded-3">
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                      <p class="mb-0">rizwandar33</p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                      <p class="mb-0">@rizwandar33</p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                      <p class="mb-0">rizwandar33</p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                      <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                      <p class="mb-0">rizwandar33</p>
+                    </li>
+                  </ul>
+                </div>
+              </div> -->
+            </div>
+          
+      
+      
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Parentage</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.parentage}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.contactNo}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Gender</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.gender |gender }}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Caste</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.caste}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Native Language</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.nativeLanguage | nativelanguage}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Marital Status</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{personalInfoResponse.maritalStatus | maritalStatus}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+           <div class="card mb-4 mb-md-0">
+            <div class="card-body">
+              <p class="mb-4"> Professional Information
+              </p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Occupation</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{professionalInfoResponse.occupation}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Working Sector</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{professionalInfoResponse.workingSector |workingSector }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Annual Income</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{professionalInfoResponse.annualIncome }}</p>
+                </div>
+              </div>
+             </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card mb-4 mb-md-0">
+            <div class="card-body">
+              <p class="mb-4">Religious Information
+              </p>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Religion</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{religiousInfoResponse.religion }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Religious</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{religiousInfoResponse.religious}}</p>
+                </div>
+              </div>
+             
+             
+             <!-- <div *ngIf="personalInfoResponse.gender == 1">
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Has Beard</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{religiousInfoResponse.hasBeard}}</p>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div *ngIf="personalInfoResponse.gender == 2">
+              <hr>
+              <div class="row">
+                <div class="col-sm-5">
+                  <p class="mb-0">Does Hijab</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{religiousInfoResponse.doesHijab}}</p>
+                </div>
+              </div>
+            </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+        <div class="row mb-5">
+         
+          <div class="col-md-12">
+            <div class="card mb-4 mb-md-0">
+              <div class="card-body">
+                <h3 class="mb-4">Appearance Information
+                </h3>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Height </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="text-muted mb-0">{{appearanceInfoResponse.height}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Body Type </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="text-muted mb-0">{{appearanceInfoResponse.bodyType}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Complexion </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="text-muted mb-0">{{appearanceInfoResponse.complexion}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-5">
+                    <p class="mb-0">Disability</p>
+                  </div>
+                  <div class="col-sm-4">
+                    <p class="text-muted mb-0">{{appearanceInfoResponse.disability | disability }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-4" *ngFor="let hobby of hobbies">
+      <div class="row mt-3 ">
+        <div class="col-10">
+            <div class="card mb-4 mb-md-0 " >
+                 <div class="card mb-4 mb-md-0">
+        <div class="card-body">
+          <h5 class="mb-4"> Hobbies
+          </h5>
+          <div class="row">
+            <div class="col-sm-5">
+              <p class="mb-0">Hobby</p>
+            </div>
+            <div class="col-sm-4">
+              <p class="text-muted mb-0">{{hobby.name}}</p>
+            </div>
+          </div>
+     
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  </div>
+
+      <div class="container ">
+        <div class="row mt-3 " >
+          <div class="col-6" *ngFor="let jobHistory of jobHistories">
+              <div class="card mb-4 mb-md-0 " >
+                   <div class="card mb-4 mb-md-0">
+          <div class="card-body">
+            <h5 class="mb-4"> Employment History
+            </h5>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">JobTitle</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{jobHistory.jobTitle}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Company</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{jobHistory.company}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">From</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{jobHistory.from | date}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">To</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{jobHistory.to | date}}</p>
+              </div>
+            </div>
+         
+          </div>
+        </div>
+          </div>
+
+
+   
+
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+      
+      <div class="container ">
+        <div class="row mt-3 ">
+          <div class="col-8 m-auto">
+              <div class="card content mb-4 mb-md-0">
+          <div class="card-body">
+            <h3 class="mb-4 text-primary"> Family Information
+            </h3>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Family Status</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.familyStatus}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Father Status</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.fatherStatus}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Mother Status</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.motherStatus}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Total Brothers</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.brothers}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Brothers Married </p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.brothersMarried}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Total Sisters </p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.sisters}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Sisters Married </p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{familyInfoResponse.sistersMarried}}</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"  tabindex="0">
+      
+      
+      <div class="container ">
+        <div class="row mt-3 ">
+          <div class="col-8 offset-2 ">
+              <div class="card content " *ngFor="let qualification of qualifications">
+                   <div class="card mb-4 mb-md-0">
+          <div class="card-body">
+            <h3 class="mb-4 text-info"> Educational Details
+            </h3>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Qualification</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{qualification.name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Qualification Type</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{qualification.qualificationType | qualificationType}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Institution</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{qualification.institution}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row mb-3">
+              <div class="col-sm-5">
+                <p class="mb-0">Year Of Passing</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{qualification.yearOfPassing}}</p>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    
+    </div>
+
+
+
+    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+       
+      <div class="container ">
+        <div class="row mt-3 ">
+          <div class="col-6 offset-3 mt-5 mb-5">
+              <div class="card  content" *ngFor="let address of addresses">
+          <div class="card-body">
+            <h3 class="mb-4 text-primary"> Address Details
+            </h3>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Address Line</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{address.addressLine}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">City</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{address.city}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">State</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{address.state}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-5">
+                <p class="mb-0">Pincode</p>
+              </div>
+              <div class="col-sm-4">
+                <p class="text-muted mb-0">{{address.pinCode}}</p>
+              </div>
+            </div>
+          <hr>
+
+
+          <div class="row mb-3">
+          <div class="col-sm-5">
+            <p class="mb-0">Perminant Address</p>
+          </div>
+          <div class="col-sm-4">
+            <p class="text-muted mb-0">{{address.isNative}}</p>
+          </div>
+        </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+

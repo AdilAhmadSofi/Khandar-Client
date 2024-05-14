@@ -1,0 +1,171 @@
+<div class="container d-flex justify-content-center mt-4 mb-5">
+  <div class="row content">
+    <div class="col-5  mb-3">
+      <img src="/assets/Images/signup.jpg" class="img-fluid">
+    </div>
+    <div class="col-7">
+      <h3 class="signin-text mb-2">Register Your Self Here</h3>
+      <form class="form-group" #signupForm="ngForm">
+        <div class="row">
+          <div class="col-6"><div >
+            <label for="name">Name</label>
+            <input 
+            type="text"
+            class="form-control mb-3"
+            id="name"
+            placeholder="eg:rizwan"
+            name="name"
+            [(ngModel)]="newUser.name"
+            required
+            #name="ngModel"
+            [class.is-invalid]="name.touched && name.invalid"
+            />
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input 
+            type="text"
+            class="form-control  mb-3"
+            id="username"
+            placeholder="eg:rizwan123"
+            name="username"
+            [(ngModel)]="newUser.username"
+            required
+            #username="ngModel"
+            [class.is-invalid]="username.touched && username.invalid"
+            (blur)="checkIfExists('check-username',username.value)"
+          />
+          </div>
+         
+          <div *ngIf="validators.isUniqueUserName" class="text-danger">
+            <p>Username already exists please choose another one</p>
+          </div>
+        </div>
+        </div>
+        
+        
+           <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+          type="email"
+          class="form-control  mb-3"
+          id="email"
+          placeholder="example@abc.com"
+          name="email"
+          [(ngModel)]="newUser.email"
+          required
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+          #email="ngModel"
+          [class.is-invalid]="email.touched && email.invalid"
+          (blur)="checkIfExists('check-email',email.value)"
+
+        />
+        </div>
+        <div *ngIf="validators.isUniqueEmail" class="text-danger">
+          <p>Email already exists please choose another one</p>
+        </div>
+        <p *ngIf="email.touched && email.invalid" class="text-danger">
+          <span *ngIf="email.errors && email.errors['pattern']">
+            Email pattern is invalid
+          </span>
+        </p>
+        <div class="row">
+          <div class="col-6"> <div class="form-group">
+            <label for="contactNo">Contact Number</label>
+            <input
+            type="tel"
+            class="form-control  mb-3"
+            id="contactNo"
+            name="contactNo"
+            [(ngModel)]="newUser.contactNo"
+            required
+            pattern="^\d{10}$"
+            #contactNo="ngModel"
+            [class.is-invalid]="contactNo.touched&&contactNo.invalid"
+            (blur)="checkIfExists('check-phonenumber',contactNo.value)"
+          />
+          </div>
+          <div *ngIf="validators.isUniquePhoneNumber" class="text-danger">
+            <p>Phone Number already exists please choose another one</p>
+          </div>
+          <p *ngIf="contactNo.touched && contactNo.invalid" class="text-danger">
+            <span *ngIf="contactNo.errors && contactNo.errors['pattern']">
+              Contact number is invalid
+            </span>
+          </p>
+        </div>
+          <div class="col-6">
+              <div class="form-group">
+            <label for="gender">Gender</label>
+            <select 
+            type=""
+            class="form-control mb-3"
+            id="gender"
+            name="gender"
+            [(ngModel)]="newUser.gender"
+            required
+            #gender="ngModel"
+            [class.is-invalid]="gender.touched&&gender.invalid"
+          >
+                <option [ngValue]="1">Male</option>
+                <option [ngValue]="2">Female</option>
+            </select>
+          </div>
+        </div>
+        </div>
+       
+         
+        <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                type="password"
+                class="form-control  mb-3 "
+                id="password"
+                name="password"
+                [(ngModel)]="newUser.password"
+                required
+                #password="ngModel"
+                [class.is-invalid]="password.touched&&password.invalid"
+              />
+              </div>
+            </div>
+          <div class="col-6">
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input 
+            type="password"
+            class="form-control mb-3"
+            id="confirmPassword"
+            name="confirmPassword"
+            [(ngModel)]="newUser.confirmPassword"
+            required
+            #confirmPassword="ngModel"
+            [class.is-invalid]="confirmPassword.touched&&confirmPassword.invalid"
+          />
+        </div>
+        <p *ngIf="password.value != confirmPassword.value" class="text-danger">
+          <span >
+            Passwords do not match!
+          </span>
+        </p>
+          </div>
+        </div>
+        
+     
+       
+        <button class="btn btn-class mt-4  " [disabled]="signupForm.invalid" (click)="createUser()"  >Create Account</button>
+        <div class="row mb-3 mt-3" >
+          <div class="col-8"> Already have an account? <span class="text-primary cursor-pointer" routerLink="/login"> Login</span></div>
+         
+        <div class="col-4"><app-loader [showloader]="showLoader"></app-loader></div> 
+       </div>
+        
+      </form>
+    </div>
+  </div>
+</div>

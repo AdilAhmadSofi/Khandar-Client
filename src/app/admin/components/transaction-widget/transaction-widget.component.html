@@ -1,0 +1,47 @@
+<div class="row">
+   
+    <div class="col-12 mt-3">
+        <h1 class="alert alert-success text-center">Transactions Total Collection {{appealtotalAmount}}</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Contact No</td>
+                <td>Paid Amount</td>
+                <td>Case No</td>
+                <td>Receipt</td>
+                <td>transactionDate</td>
+                <td>transaction Id</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactionResponse">
+                <td>
+                    <b *ngIf="transaction.userRole == usrRole.partnerSeeker; else memberElse">
+                        <a routerLink="/admin/user-details/{{transaction.donorId}}">
+                            {{transaction.donorName}}
+                        </a>
+                    </b>
+                    <ng-template #memberElse>
+                        <a routerLink="/admin/member-details/{{transaction.donorId}}">
+                            {{transaction.donorName}}
+                        </a>
+                    </ng-template>
+                </td>
+                <td>{{transaction.donorEmail}}</td>
+                <td>{{transaction.donorContactNo}}</td>
+                <td>{{transaction.paidAmount}}</td>
+                <td>
+                    <a routerLink="/admin/user-details/{{transaction.beneficiaryId}}">
+                        {{transaction.caseNo}}
+                    </a>
+                    </td>
+                <td>{{transaction.receipt}}</td>
+                <td>{{transaction.transactionDate | date }}</td>
+                <td>{{transaction.transactionId}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

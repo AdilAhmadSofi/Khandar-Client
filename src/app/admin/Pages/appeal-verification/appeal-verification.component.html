@@ -1,0 +1,114 @@
+<div class="row mb-5 ms-5 mt-5 d-flex justify-content-center" >
+
+  <div class="row my-4">
+    <div class="col-9">
+      <div class="form-floating">
+        <select name="remarks" placeholder="Status" id="status" #status class="form-control" >
+          <option disabled selected ="">-----</option>
+            <option value="3">Approved</option>
+            <option value="4">Rejected</option>
+            <option value="7">Completed</option>
+        </select>
+        <label for="name">Verification Status</label>
+      </div>
+    </div>
+    <div class="col-3">   
+      <div class="d-flex justify-content-left">
+        <button type="submit" class="btn btn-outline-success btn-w " 
+        (click)="submitVerificationStatus(status.value)"
+        >Submit</button>
+        <!-- <app-loader [showloader]="showLoader"></app-loader> -->
+      </div>
+    </div>
+  </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+              <div class="card mb-4" style="box-shadow: 2px 2px 3px #888888;" *ngFor="let appealVerificationResponse of appealVerificationResponses" >
+                <div class="card-body">
+                  <div class="row">
+                  
+                    <div class="col-sm-4">
+                      <p class="mb-2">Remarks</p>
+                    </div>
+                    <div class="col-sm-4">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.remarks }}</p>
+                    </div>
+                    <div class="col-sm-4 d-flex justify-content-end">
+                    </div>
+                    
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-2">FeedBack</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.feedback}}</p>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-2">Member Name</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.memberName}}</p>
+                    </div>
+                  </div>
+                  
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-2">memberType</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.memberType }}</p>
+                    </div>
+                  </div>
+                  <hr>
+
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-2">Member ContactNo</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.memberContactNo}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                
+                  
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-2">verificationDate</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.verificationDate | date}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-3">appealDate</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.appealDate | date}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <p class="mb-3">Status</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <p class="text-muted mb-0">{{appealVerificationResponse.donationAppealStatus | donationAppealStatus}}</p>
+                    </div>
+                  </div>
+              </div>
+    
+            </div>
+        </div>
+    </div>
+</div>

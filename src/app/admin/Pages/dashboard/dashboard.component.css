@@ -1,0 +1,22 @@
+.navbar{
+    height: 3rem;
+    background: rgb(5, 68, 104);
+    /* rgb(76, 114, 131); */
+    width: 100%;
+    margin-right: 200px;
+}
+.navbar ul li a{
+    text-decoration: none;
+    list-style: none;
+}
+
+.dash-card{
+    background-color:#fff ;
+    color:#000;
+    box-shadow: 5px 5px 5px #969393;
+}
+
+.dash-card:hover{
+    transform:scale(50px);
+    transition: 0.5s;
+}

@@ -1,0 +1,66 @@
+<div class="container">
+
+    <div class="row mt-5">
+      <div class="col-5 card content m-auto" >
+        <div class="card-body">
+          <div class="row ">
+            <div class="col-12">
+              <div class="row mt-2 mb-5  d-flex justify-content-center">
+              <img src="{{memberResponse.filePath == '' ?'/assets/Images/logo.jpeg' :baseUrl+memberResponse.filePath}}"
+                alt="" class="rounded-circle img-fluid" style="width: 150px;" />
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <p class="mb-0">Name</p>
+                    </div>
+                    <div class="col-sm-5">
+                      <p class="text-muted mb-0">{{memberResponse.name}}</p>
+                    </div>
+                  </div>
+                  <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Gender</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class="mb-0">{{memberResponse.gender | gender}}</p>
+                  </div>
+                  
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Contact No</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class=" mb-0">{{memberResponse.contactNo}}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Member Involvement</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class="mb-0">{{memberResponse.memberInvolvement }}</p>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <p class="mb-0">Role</p>
+                  </div>
+                  <div class="col-sm-5">
+                    <p class=" mb-0">{{memberResponse.memberType }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

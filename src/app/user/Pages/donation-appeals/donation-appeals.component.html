@@ -1,0 +1,36 @@
+
+<div class="row my-5" style="background-color: #e8e8e8;">
+  <div class="col-4" *ngFor="let appeal of appeals">
+    <div class="card mb-5 content" 
+      >
+      <div class="card-body">
+        <h3 class="card-title text-center my-3">Donations</h3>
+        <div class="row justify-content-end">
+          <div class="col-4">
+         
+          </div>
+        </div>
+        <p class="card-text">
+          Case Number : {{appeal.caseNo}}
+        </p>
+        <p class="card-text">
+          Gender : {{appeal.gender | gender}}
+        </p>
+        <p class="card-text">
+          Amount : {{appeal.amount}}
+        </p>
+        <p class="card-text">
+          Description : {{appeal.description}}
+        </p>
+        <div class="row my-3 d-flex justify-content-center">
+          <div class="col-4">
+            <button class="btn btn-outline-primary my-3 " routerLink="/login" >Donate</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>

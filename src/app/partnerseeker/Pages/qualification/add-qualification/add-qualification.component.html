@@ -1,0 +1,91 @@
+ <div class="container ">
+       
+    <div class="row" >
+        <div class="col-md-2">
+        </div>
+       
+        <div class="col-md-8 py-2 content">
+            
+            <h2 class="d-flex justify-content-center my-3">Educational Details</h2>
+            <form action="" #qualificationForm="ngForm" (ngSubmit)="submitQualification()">
+                
+                <div class="form-floating my-4 mx-4">
+                    <input type="text" 
+                     placeholder="Course Name" 
+                     id="name" 
+                     class="form-control"
+                     name="name"
+                    [(ngModel)]="Qualification.name"
+                    required
+                    #name="ngModel"
+                    [class.is-invalid]="name.touched&&name.invalid">
+                    <label for="name">Course</label>
+                  </div>
+                  
+                    <div class="form-floating my-4 mx-4 ">
+                        <select type="text" 
+                        name="qualificationType"
+                         placeholder="Type of Qualification"
+                          id="qualificationType" 
+                          class="form-select"
+                        [(ngModel)]="Qualification.qualificationType"
+                        required
+                    #qualificationType="ngModel"
+                    [class.is-invalid]="qualificationType.touched && qualificationType.invalid"
+                        >
+                        <option selected disabled value="0" >Choose an option</option>
+                        <option value="1">High School</option>
+                        <option value="2">Diploma</option>
+                        <option value="3">Bachelor</option>
+                        <option value="4">Masters</option>
+                        <option value="5">Doctorate</option>
+                        <option value="6">Certification</option>
+                    </select>
+                        <label for="qualificationType">Course Type</label>
+                    </div>
+              
+
+                  <div class="form-floating my-4 mx-4">
+
+                    <input type="text" 
+                    name="institution" 
+                    placeholder="Name of Institution"
+                     id="institution" 
+                     class="form-control"
+                    [(ngModel)]="Qualification.institution"
+                    #institution="ngModel"
+                    [class.is-invalid]="institution.touched && institution.invalid"
+                    >
+                      <label for="institution">Institution</label>
+                  </div>
+
+                  <div class="form-floating my-4 mx-4">
+                    <input type="text"
+                     name="yearOfPassing"
+                      placeholder="Completion of Course" 
+                      id="yearOfPassing"
+                       class="form-control"
+                        [(ngModel)]="Qualification.yearOfPassing"
+                        #yearOfPassing="ngModel"
+                         pattern="^\d{4}$"
+
+                        [class.is-invalid]="yearOfPassing.touched && yearOfPassing.invalid">
+                        <label for="yearOfPassing">Year Of Passing</label>
+                        <p *ngIf="yearOfPassing.touched && yearOfPassing.invalid" class="text-danger">
+                            <span *ngIf="yearOfPassing.errors && yearOfPassing.errors['pattern']">
+                              Invalid Year
+                            </span>
+                          </p></div>
+               
+                     
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-outline-success btn-w me-4 mb-3" [disabled]="qualificationForm.invalid">Save</button>
+                    </div>
+         </form>
+        </div>
+        <div class="col-md-2">
+        </div>
+        </div>
+       
+
+    </div>

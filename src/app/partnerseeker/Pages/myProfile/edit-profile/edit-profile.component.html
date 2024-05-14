@@ -1,0 +1,553 @@
+
+ <div class="container d-flex justify-content-center mt-4">
+
+  <form class="form-group" #updateForm="ngForm" (ngSubmit)="updatePartnerSeeker($event)">
+
+  <div class="row content mt-5 mb-5">
+    <!-- <div class="col-md-5  mb-3">
+        <img src="/assets/Images/signup.jpg" class="img-fluid">
+      </div> -->
+    <div class="col-md-12">
+      <h4 class="signin-text mb-4 d-flex justify-content-center">
+        Basic Details
+      </h4>
+      <div class="row">
+        <div class="col-6">
+
+        <input type="file" class="mb-4" #inputFile  (change)="checkFileType(inputFile.files)" name="file" [(ngModel)]="file">
+
+        </div>
+        <div class="col-6">
+          <select class="form-select" aria-label="Picture Visibility"
+          [(ngModel)]="partnerSeekerRequest.profilePictureVisibilty"
+          name="profilePictureVisibilty"
+          >
+            <option selected>Picture Visibility</option>
+            <option value="1">Only Me</option>
+            <option value="2">OnlyFriends</option>
+            <option value="3">EveryOne</option>
+          </select>
+        </div>
+      </div>
+        <div class="row">
+          
+          <div class="col-md-6">
+            <div>
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-control"
+                [(ngModel)]="partnerSeekerRequest.name"
+                required
+                #name="ngModel"
+                [class.is-invalid]="name.touched && name.invalid"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="username">Parentage</label>
+              <input
+                type="text"
+                class="form-control"
+                id="parentage"
+                name="parentage"
+                [(ngModel)]="partnerSeekerRequest.parentage"
+                required
+                #parentage="ngModel"
+                [class.is-invalid]="parentage.touched && parentage.invalid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                [(ngModel)]="partnerSeekerRequest.email"
+                readonly
+                #email="ngModel"
+                [class.is-invalid]="email.touched && email.invalid"
+              />
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="dob">DOB</label>
+              <input
+                type="date"
+                class="form-control"
+                name="dob"
+                [(ngModel)]="partnerSeekerRequest.dob"
+                #dob="ngModel"
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="contactNo">Contact Number</label>
+              <input
+                type="text"
+                class="form-control"
+                name="contactNo"
+                [(ngModel)]="partnerSeekerRequest.contactNo"
+                required
+                #contactNo="ngModel"
+                [class.is-invalid]="contactNo.touched && contactNo.invalid"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select
+                class="form-control"
+                [(ngModel)]="partnerSeekerRequest.gender"
+                name="gender"
+              >
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="caste">Caste</label>
+              <input
+                type="text"
+                class="form-control mb-3"
+                id="caste"
+                name="caste"
+                [(ngModel)]="partnerSeekerRequest.caste"
+                required
+                #caste="ngModel"
+                [class.i-invalid]="caste.touched && caste.invalid"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="aadhaarNo">Aadhaar Number</label>
+              <input
+                type="text"
+                class="form-control p-5"
+                name="aadhaarNo"
+                [(ngModel)]="partnerSeekerRequest.aadhaarNo"
+                required
+                pattern="^\d{16}$"
+                #aadhaarNo="ngModel"
+                [class.is-invalid]="aadhaarNo.touched && aadhaarNo.invalid"
+              />
+            </div>
+            <p *ngIf="aadhaarNo.touched && aadhaarNo.invalid" class="text-danger">
+              <span *ngIf="aadhaarNo.errors && aadhaarNo.errors['pattern']">
+                Aadhaar Number is invalid
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="maritalStatus">Marital Status</label>
+              <select
+                class="form-control"
+                [(ngModel)]="partnerSeekerRequest.maritalStatus"
+                name="maritalStatus"
+                style="margin-top: 0px; margin-right: 51px; width: 100%"
+              >
+                <option value="0" selected disabled>
+                  Select Marital-Status
+                </option>
+                <option value="1">UnMarried</option>
+                <option value="2">Married</option>
+                <option value="3">Divorced</option>
+                <option value="4">Widowed</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nativeLanguage">Mother tongue</label>
+              <select
+              class="form-control"
+              [(ngModel)]="partnerSeekerRequest.nativeLanguage"
+              name="nativeLanguage"
+              style="margin-top: 0px; margin-right: 51px; width: 100%"
+            >
+              <option value="0" selected disabled>Select Native-Language</option>
+              <option value="1">Kashmiri</option>
+              <option value="2">Urdu</option>
+              <option value="3">English</option>
+              <option value="4">Dogri</option>
+              <option value="5">Pahari</option>
+              <option value="6">Gojri</option>
+              <option value="7">Sindhi</option>
+              <option value="8">Balti</option>
+              <option value="9">Shina</option>
+              <option value="10">Punjabi</option>
+              <option value="11">Hindi</option>
+              <option value="12">Ladaki</option>
+              <option value="13">Other</option>
+            </select>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row content mt-5">
+    <div class="col-md-12">
+      <h4 class="signin-text mb-4 d-flex justify-content-center">
+        Family Details
+      </h4>
+     
+          
+            <div>
+              <label for="familyStatus">Family Status</label>
+              <select
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.familyStatus"
+              name="familyStatus"
+              style="margin-top: 0px; margin-right: 51px; width: 100%"
+            >
+              <option value="0" selected disabled>Select Family-Status</option>
+              <option value="1">MiddleClass</option>
+              <option value="2">Affluent</option>
+              <option value="3">UpperMiddleClass</option>
+              <option value="4">LowerMiddleClass</option>
+              <option value="5">PoorFamily</option>
+              <option value="6">PreferNotToSay</option>
+            </select>
+            </div>
+         
+           
+
+        <div class="row">
+          <div class="col-md-6">
+          <div class="form-group">
+            <label for="fatherStatus">Father Status</label>
+            <select
+            class="form-control mb-4"
+            [(ngModel)]="partnerSeekerRequest.fatherStatus"
+            name="fatherStatus"
+          >
+          <option value="0" selected disabled>Select Mother-Status</option>
+          <option value="1">Employed</option>
+          <option value="2">Bussiness</option>
+          <option value="3">Retired</option>
+          <option value="4">NotEmployed</option>
+          <option value="5">PassedAway</option>
+          <option value="6">HomeMaker</option>
+          </select>
+          </div>
+          </div>
+          <div class="col-md-6">
+            <label for="motherStatus">Mother Status</label>
+
+            <select
+            class="form-control mb-4"
+            [(ngModel)]="partnerSeekerRequest.motherStatus"
+            name="motherStatus"
+          >
+            <option value="0" selected disabled>Select Mother-Status</option>
+            <option value="1">Employed</option>
+            <option value="2">Bussiness</option>
+            <option value="3">Retired</option>
+            <option value="4">NotEmployed</option>
+            <option value="5">PassedAway</option>
+            <option value="6">HomeMaker</option>
+          </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="brothers">Total No of Brothers</label>
+              <input type="number" class="form-control mb-4"
+              name="brothers" 
+              [(ngModel)]="partnerSeekerRequest.brothers" required #brothers="ngModel"
+              [class.is-invalid]="brothers.touched && brothers.invalid" />
+
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="brothersMarried">Brothers Married</label>
+              <input type="number" class="form-control mb-4"
+              name="brothersMarried" placeholder="BrothersMarried"
+              [(ngModel)]="partnerSeekerRequest.brothersMarried" required #brothersMarried="ngModel"
+              [class.is-invalid]="brothersMarried.touched && brothersMarried.invalid" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="sisters">Total Sisters</label>
+              <input type="number" class="form-control mb-4"
+              name="sisters" 
+              [(ngModel)]="partnerSeekerRequest.sisters" required #sisters="ngModel"
+              [class.is-invalid]="sisters.touched && sisters.invalid" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="nativeLanguage">Sisters Married</label>
+              <input type="number" class="form-control mb-4"
+              name="sistersMarried" 
+              [(ngModel)]="partnerSeekerRequest.sistersMarried" required #sistersMarried="ngModel"
+              [class.is-invalid]="sistersMarried.touched && sistersMarried.invalid" />
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row content mt-5 mb-5">
+    <!-- <div class="col-md-5  mb-3">
+        <img src="/assets/Images/signup.jpg" class="img-fluid">
+      </div> -->
+    <div class="col-md-12">
+      <h4 class="signin-text mb-4 d-flex justify-content-center">
+        Professional Details
+      </h4>
+     
+           
+
+            <div class="form-group">
+              <label for="workingSector">Working Sector</label>
+              <select 
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.workingSector"
+              name="workingSector"
+            >
+            <option value="0" selected disabled>Select Working Sector</option>
+            <option value="1">Government</option>
+              <option value="2">Private</option>
+              <option value="3">SelfEmployed</option>
+              <option value="4">Bussiness</option>
+              <option value="5">NotWorking</option>
+              <option value="6">Other</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="occupation">Occupation</label>
+              <input type="text" class="form-control mb-4"
+              name="occupation" 
+                  [(ngModel)]="partnerSeekerRequest.occupation" required #occupation="ngModel"
+                  [class.is-invalid]="occupation.touched && occupation.invalid" />
+            </div>
+
+        <div class="form-group">
+          <label for="annualIncome">Annual Income</label>
+          <select
+          class="form-control mb-4"
+          [(ngModel)]="partnerSeekerRequest.annualIncome"
+          name="annualIncome"
+        >
+        <option value="0" selected disabled>Select Annual Income</option>
+        <option value="1">BelowLac</option>
+        <option value="2">LacTo2Lac</option>
+        <option value="3">From2LacTo5Lac</option>
+        <option value="4">From5LacTo10Lac</option>
+        <option value="5">Above10lac</option>
+        <option value="6">PreferNotToSay</option>
+        </select>
+        </div>
+       
+
+      
+       
+    </div>
+  </div>
+
+  <div class="row content mt-5 mb-5">
+    <!-- <div class="col-md-5  mb-3">
+        <img src="/assets/Images/signup.jpg" class="img-fluid">
+      </div> -->
+    <div class="col-md-12">
+      <h4 class="signin-text mb-4 d-flex justify-content-center">
+        Appearance Information
+      </h4>
+     
+            <div>
+              <label for="disability">Disability</label>
+              <select
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.disability"
+              name="disability"
+              style="margin-top: 0px; margin-right: 51px; width: 100%"
+            >
+              <option value="0" selected disabled>Select Disability</option>
+              <option value="1">None</option>
+              <option value="2">MentallyChallengedFromBirth</option>
+              <option value="3">PhysicalAbnormalityAffectingOnlyLooks</option>
+              <option value="4">PhysicalAbnormalityAffectingBodilyFunction</option>
+              <option value="5">PhysicallyChallengedDueToAccindent</option>
+              <option value="6">DefectsOnVitalOrgans</option>
+              <option value="7">PhysicallyChallengedFromBirth</option>
+            </select>
+            </div>
+        
+            <div class="form-group">
+              <label for="height">Height</label>
+              <select
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.height"
+              name="height"
+            >
+            <option value="0" selected disabled>Select Height</option>
+            <option value="0">FourFeet</option>
+            <option value="1">FourFeet1Inch</option>
+            <option value="2">FourFeet2Inches</option>
+            <option value="3">FourFeet3Inches</option>
+            <option value="4">FourFeet4Inches</option>
+            <option value="5">FourFeet5Inches</option>
+            <option value="6">FourFeet6Inches</option>
+            <option value="7">FourFeet7Inches</option>
+            <option value="8">FourFeet8Inches</option>
+            <option value="9">FourFeet9Inches</option>
+            <option value="10">FourFeet10Inches</option>
+            <option value="11">FourFeet11Inches</option>
+            <option value="12">FiveFeet</option>
+            <option value="13">FiveFeet1Inch</option>
+            <option value="14">FiveFeet2Inches</option>
+            <option value="15">FiveFeet3Inches</option>
+            <option value="16">FiveFeet4Inches</option>
+            <option value="17">FiveFeet5Inches</option>
+            <option value="18">FiveFeet6Inches</option>
+            <option value="19">FiveFeet7Inches</option>
+            <option value="20">FiveFeet8Inches</option>
+            <option value="21">FiveFeet9Inches</option>
+            <option value="22">FiveFeet10Inches</option>
+            <option value="23">FiveFeet11Inches</option>
+            <option value="24">SixFeet0Inches</option>
+            <option value="25">SixFeet1Inches</option>
+            <option value="26">SixFeet2Inches</option>
+            <option value="27">SixFeet3Inches</option>
+            <option value="28">SixFeet4Inches</option>
+            <option value="29">SixFeet5Inches</option>
+            <option value="30">SixFeet6Inches</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="bodyType">Body Type</label>
+          <select
+          class="form-control mb-4"
+          [(ngModel)]="partnerSeekerRequest.bodyType"
+          name="bodyType"
+        >
+          <option value="0" selected disabled>Select Body Type</option>
+          <option value="1">Slim</option>
+          <option value="2">Average</option>
+          <option value="3">Athletic</option>
+          <option value="4">Fat</option>
+          <option value="5">Other</option>
+        </select>
+        </div>
+        <div class="form-group">
+          <label for="bodyType">Complexion</label>
+          <select
+          class="form-control mb-4"
+          [(ngModel)]="partnerSeekerRequest.complexion"
+          name="complexion"
+        >
+          <option value="0" selected disabled>Select Complexion</option>
+          <option value="1">VeryFair</option>
+          <option value="2">Fair</option>
+          <option value="3">Dark</option>
+          <option value="4">Wheatish</option>
+          <option value="5">Others</option>
+        </select>
+
+      </div>
+       
+    </div>
+  </div>
+
+
+  <div class="row content mt-5 mb-5">
+    <!-- <div class="col-md-5  mb-3">
+        <img src="/assets/Images/signup.jpg" class="img-fluid">
+      </div> -->
+    <div class="col-md-12">
+      <h4 class="signin-text mb-4 d-flex justify-content-center">
+       Religious Information
+      </h4>
+     
+            <div>
+              <label for="religion">Religion</label>
+              <select
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.religion"
+              name="religion"
+            >
+              <option value="0" selected disabled>Select Religion</option>
+              <option value="1">MuslimSunni</option>
+              <option value="2">MuslimShia</option>
+              <option value="3">Sikhism</option>
+              <option value="4">Hinduism</option>
+              <option value="5">Christian</option>
+            </select>
+            </div>
+        
+            <div class="form-group">
+              <label for="religious">Religious</label>
+              <select
+              class="form-control mb-4"
+              [(ngModel)]="partnerSeekerRequest.religious"
+              name="religious"
+            >
+            <option value="0" selected disabled>Select Religious</option>
+            <option value="1">VeryReligious</option>
+            <option value="2">ModerateReligious</option>
+            <option value="3">NotVeryReligious</option>
+            <option value="4">NotReligious</option>
+            </select>
+        </div>
+
+     
+        <div class="form-control mb-4"  *ngIf="partnerSeekerRequest.gender === maleGender;  else lady">
+          <!-- <input type="radio" value="0" name="hasBeard"  checked #hasBeard="ngModel"  [(ngModel)]="partnerSeekerRequest.hasBeard">
+          <input type="radio" value="1" name="hasBeard"   #hasBeard="ngModel"  [(ngModel)]="partnerSeekerRequest.hasBeard">
+          -->
+          <!-- [(ngModel)]="partnerSeekerRequest.hasBeard required #hasBeard="ngModel"
+          [class.is-invalid]="hasBeard.touched && hasBeard.invalid" /> -->
+        </div>
+      <ng-template #lady >
+        <div class="form-control mb-4">
+          <!-- <input type="radio" value="0" name="doesHijab" checked   #doesHijab="ngModel"  [(ngModel)]="partnerSeekerRequest.doesHijab">
+          <input type="radio" value="1" name="doesHijab"   #doesHijab="ngModel"  [(ngModel)]="partnerSeekerRequest.doesHijab">
+          -->
+          <!-- [(ngModel)]="partnerSeekerRequest.hasBeard required #hasBeard="ngModel"
+          [class.is-invalid]="hasBeard.touched && hasBeard.invalid" /> -->
+        </div>
+      </ng-template>
+      
+       <div class="row">
+         <button class="btn btn-class mt-4  justify-content-center"  [disabled]="updateForm.invalid">Submit</button>
+       </div>
+       <app-loader [showloader]="showLoader"></app-loader>
+
+    </div>
+  </div>
+</form>
+
+
+
+</div>

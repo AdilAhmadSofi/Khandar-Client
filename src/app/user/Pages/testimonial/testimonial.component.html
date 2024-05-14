@@ -1,0 +1,30 @@
+    
+<section id="testim" style="background-color: #e8e8e8 !important;" class="testim">
+  <!--         <div class="testim-cover"> -->
+  <div class="wrap">
+    <button
+      id="right-arrow"
+      class="arrow right fa fa-chevron-right"
+      (click)="index = index + 1"
+      [disabled]="index === testimonials.length - 1"
+    ></button>
+    <button
+      id="left-arrow"
+      class="arrow left fa fa-chevron-left"
+      (click)="index = index - 1"
+      [disabled]="index === 0"
+    ></button>
+    <div id="testim-content" class="cont">
+      <div class="active">
+        <div class="img">
+     
+
+<img src="/assets/Images/logo.jpeg" alt="">        </div>
+        <h2>{{ testimonials[index].name }}</h2>
+        <p class="text-dark">
+          "{{ testimonials[index].description }}"
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

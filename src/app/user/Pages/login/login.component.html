@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-center">
+  <div class="row content">
+    <div class="col-6 mb-3">
+     <img src="/assets/Images/login.jpg"  class="img-fluid " >
+    </div>
+    <div class="col-6">
+      <h3 class="signin-text mb-5"> Login </h3>
+      <form class="form-group validate-form" #loginForm="ngForm" (ngSubmit)="signIn()" >
+        <div >
+          <label for="email">Username</label>
+          <input  class="form-control mb-3"
+          type="text"
+          placeholder=""
+          name="userName"
+          required
+          [(ngModel)]="loginCredentials.username"
+          #username="ngModel"
+          [class.is-invalid]="username.touched && username.invalid">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input  class="form-control mb-3"
+          type="password"
+          name="password"
+          placeholder=""
+          required
+          [(ngModel)]="loginCredentials.password"
+          #password="ngModel"
+          [class.is-invalid]="password.touched && password.invalid">
+        </div>
+        <!-- <div class="form-group form-check mb-4">
+          <input type="checkbox" name="checkbox" class="form-check-input" id="checkbox">
+          <label class="form-check-label" for="checkbox">Remember Me</label>
+        </div> -->
+       
+        <button class="btn btn-class mb-3 justify-content-sm-end"  [disabled]="loginForm.invalid">Login
+          
+        </button>
+              <div class="mb-3">
+              <a routerLink="/forgotpassword">Forgot Password?</a>
+              </div>
+              <p>
+                Don't have an account?<span
+                  class="text-primary cursor-pointer"
+                  routerLink="/signup"
+                  >  Signup</span
+                >
+
+                <app-loader [showloader]="showLoader"></app-loader>
+      </form>
+        </div>
+    </div>
+  </div>

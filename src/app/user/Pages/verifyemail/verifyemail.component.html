@@ -1,0 +1,34 @@
+
+  <div class="container d-flex justify-content-center mt-5">
+    <div class="row content  ">
+      
+      <div class="col-md-5 mb-3 ">
+        <img src="/assets/Images/changepassword.jpg" class="img-fluid" />
+        </div>
+        <div class="col-md-7">
+        <h5 class="signin-text">Verfication code is sent to your registered email.</h5>
+        <form class="bb-form validate-form" #confirmCodeForm="ngForm" (ngSubmit)="confirmationEmail()">
+          <div class="form-group">
+            <label for="confirmationCode" class="mt-5">Confirmation Code</label>
+            <input
+            class="form-control mb-5"
+            type="text"
+            name="confirmationCode"
+            required
+            [(ngModel)]="confirmationCode"
+            #username="ngModel"
+            [class.is-invalid]="username.touched && username.invalid"
+          />
+          </div>
+          <div class="form-group">
+          <button class="btn btn-class" [disabled]="confirmCodeForm.invalid">Enter Code</button>
+          </div>
+          <div>
+            <app-loader [showloader]="showLoader"></app-loader>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+   
+  

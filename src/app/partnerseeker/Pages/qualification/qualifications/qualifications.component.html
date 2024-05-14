@@ -1,0 +1,56 @@
+
+
+   <div class="row mt-3 ms-5 " style="height: 60px;">
+    <div class="col-12 d-flex justify-content-end align-items-center">
+      <button class="btn btn-outline-primary ms-5 me-4"
+      routerLink="/partnerseeker/addQualification" >Add Qualification</button>
+  </div>
+  </div>
+  <div class="row mb-5 ms-5 mt-5 d-flex justify-content-center"  *ngFor="let qualification of qualifications">
+   <div class="col-lg-8">
+          <div class="card mb-4 content"  >
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-2">Qualification</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="text-muted mb-0">{{qualification.name}}</p>
+                </div>
+                <div class="col-sm-4 d-flex justify-content-end">
+                <a (click)="deleteQualification(qualification.id)"><i class="fa fa-trash text-danger"></i></a>
+                </div>
+                
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-2">Qualification Type</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{qualification.qualificationType | qualificationType}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-2">Institution</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{qualification.institution}}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-4">
+                  <p class="mb-3">Year Of Passing</p>
+                </div>
+                <div class="col-sm-8">
+                  <p class="text-muted mb-0">{{qualification.yearOfPassing}}</p>
+                </div>
+              </div>
+          </div>
+
+        </div>
+</div>
+</div>
